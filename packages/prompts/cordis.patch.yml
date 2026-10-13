@@ -1,0 +1,15 @@
+# The dsh-prompts bundle patch: the user prompt library over the dsh-base layer.
+# Applied after base/web-app bundle layers. This bundle inserts the rows it needs:
+#
+#   prompts        host half (no services of its own; storage + routes live in ./web-api)
+#   prompts-web-api  /prompts-api prefix route (same package, ./web-api entry)
+#
+# Prompts are pure input assistance: nothing here reaches a model request or
+# the session log.
+
+- insert:
+    - id: prompts
+      name: '@deepseek-ai/dsh-prompts'
+
+    - id: prompts-web-api
+      name: '@deepseek-ai/dsh-prompts/web-api'
